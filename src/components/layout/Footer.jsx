@@ -19,10 +19,10 @@ export default function Footer() {
         </nav>
 
         <div className="space-y-2 font-semibold md:text-right">
-          <a href={contact.whatsappUrl} target="_blank" rel="noopener noreferrer" className="block hover:text-gold">
+          <a href={contact.whatsappUrl} className="block hover:text-gold">
             WhatsApp {contact.whatsappDisplay}
           </a>
-          <a href={contact.instagramUrl} target="_blank" rel="noopener noreferrer" className="block hover:text-gold">
+          <a href={contact.instagramUrl} className="block hover:text-gold">
             Instagram {contact.instagramHandle}
           </a>
         </div>

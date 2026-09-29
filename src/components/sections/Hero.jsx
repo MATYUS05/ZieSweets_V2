@@ -28,7 +28,7 @@ export default function Hero() {
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Button href="#products">See the goodies →</Button>
-          <Button href={contact.whatsappUrl} variant="light" external>
+          <Button href={contact.whatsappUrl} variant="light">
             Order on WhatsApp
           </Button>
         </div>

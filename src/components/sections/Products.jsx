@@ -38,7 +38,7 @@ export default function Products() {
               <p className="font-display text-4xl leading-none font-black uppercase">Can’t pick just one?</p>
               <div>
                 <p className="mb-5 text-cream/80">Mix and match your favourites — just tell us what you’re craving.</p>
-                <Button href={contact.whatsappUrl} variant="gold" external>
+                <Button href={contact.whatsappUrl} variant="gold">
                   Chat to order →
                 </Button>
               </div>

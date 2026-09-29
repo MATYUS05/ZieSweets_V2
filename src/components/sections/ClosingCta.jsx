@@ -31,10 +31,8 @@ export default function ClosingCta() {
             Slide into our DMs or drop us a WhatsApp to order your cakes and breads.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button href={contact.whatsappUrl} external>
-              WhatsApp {contact.whatsappDisplay}
-            </Button>
-            <Button href={contact.instagramUrl} variant="light" external>
+            <Button href={contact.whatsappUrl}>WhatsApp {contact.whatsappDisplay}</Button>
+            <Button href={contact.instagramUrl} variant="light">
               Instagram {contact.instagramHandle}
             </Button>
           </div>

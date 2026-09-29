@@ -35,7 +35,7 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:block">
-            <Button href={contact.whatsappUrl} variant="gold" external>
+            <Button href={contact.whatsappUrl} variant="gold">
               Order now
             </Button>
           </div>
@@ -76,10 +76,8 @@ export default function Header() {
         </nav>
 
         <div className="mt-auto grid gap-3">
-          <Button href={contact.whatsappUrl} external>
-            WhatsApp {contact.whatsappDisplay}
-          </Button>
-          <Button href={contact.instagramUrl} variant="light" external>
+          <Button href={contact.whatsappUrl}>WhatsApp {contact.whatsappDisplay}</Button>
+          <Button href={contact.instagramUrl} variant="light">
             Instagram {contact.instagramHandle}
           </Button>
         </div>
