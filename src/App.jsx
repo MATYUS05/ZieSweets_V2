@@ -1,6 +1,7 @@
 import Footer from './components/layout/Footer'
 import Header from './components/layout/Header'
 import About from './components/sections/About'
+import Catalog from './components/sections/Catalog'
 import ClosingCta from './components/sections/ClosingCta'
 import Hero from './components/sections/Hero'
 import Products from './components/sections/Products'
@@ -27,6 +28,7 @@ export default function App() {
         <ClosingCta />
       </main>
       <Footer />
+      <Catalog />
     </div>
   )
 }

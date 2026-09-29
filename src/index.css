@@ -15,10 +15,18 @@
 
   --animate-marquee: marquee 32s linear infinite;
   --animate-spin-slow: spin 14s linear infinite;
+  --animate-rise: rise 350ms ease-out;
 
   @keyframes marquee {
     to {
       translate: -50% 0;
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      translate: 0 2rem;
     }
   }
 }
@@ -31,6 +39,39 @@
 
   @variant md {
     padding-inline: 2.5rem;
+  }
+}
+
+@utility tag {
+  flex-shrink: 0;
+  border-radius: calc(infinity * 1px);
+  border: 2px solid var(--color-cocoa);
+  padding: 0.125rem 0.625rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@utility scrollbar-brand {
+  &::-webkit-scrollbar {
+    height: 0.375rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    margin-inline: 1.25rem;
+    border-radius: calc(infinity * 1px);
+    background: var(--color-gold-soft);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: calc(infinity * 1px);
+    background: var(--color-cocoa);
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-cocoa) var(--color-gold-soft);
   }
 }
 
@@ -50,6 +91,10 @@
     @apply bg-cream font-sans text-cocoa antialiased;
   }
 
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
+
   h1,
   h2,
   h3,
@@ -63,6 +108,58 @@
 
   :focus-visible {
     @apply outline-3 outline-offset-4 outline-cocoa;
+  }
+}
+
+@supports (appearance: base-select) {
+  .select-pill,
+  .select-pill::picker(select) {
+    appearance: base-select;
+  }
+
+  .select-pill {
+    display: flex;
+    align-items: center;
+  }
+
+  .select-pill::picker-icon {
+    display: none;
+  }
+
+  .select-pill:open + [aria-hidden] {
+    rotate: 180deg;
+  }
+
+  .select-pill::picker(select) {
+    margin-block: 0.5rem;
+    padding: 0.375rem;
+    border: 2px solid var(--color-cocoa);
+    border-radius: 1.5rem;
+    background: white;
+    box-shadow: var(--shadow-hard);
+  }
+
+  .select-pill option {
+    padding: 0.625rem 1rem;
+    border-radius: calc(infinity * 1px);
+    font-weight: 600;
+  }
+
+  .select-pill option::checkmark {
+    content: '✦';
+    order: 1;
+    margin-inline-start: auto;
+  }
+
+  .select-pill option:hover,
+  .select-pill option:focus-visible {
+    background: var(--color-gold-soft);
+    outline: none;
+  }
+
+  .select-pill option:checked {
+    background: var(--color-cocoa);
+    color: var(--color-cream);
   }
 }
 

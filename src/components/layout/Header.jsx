@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { contact, navLinks } from '../../data/site'
+import { contact, navLinks, orderHref } from '../../data/site'
 import Button from '../ui/Button'
 import Logo from '../ui/Logo'
 
@@ -35,7 +35,7 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:block">
-            <Button href={contact.whatsappUrl} variant="gold">
+            <Button href={orderHref} variant="gold">
               Order now
             </Button>
           </div>
@@ -76,7 +76,12 @@ export default function Header() {
         </nav>
 
         <div className="mt-auto grid gap-3">
-          <Button href={contact.whatsappUrl}>WhatsApp {contact.whatsappDisplay}</Button>
+          <Button href={orderHref} onClick={close}>
+            Order now
+          </Button>
+          <Button href={contact.whatsappUrl} variant="light">
+            WhatsApp {contact.whatsappDisplay}
+          </Button>
           <Button href={contact.instagramUrl} variant="light">
             Instagram {contact.instagramHandle}
           </Button>

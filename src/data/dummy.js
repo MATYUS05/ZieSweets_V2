@@ -9,7 +9,7 @@ export const dummyReviews = [
   {
     quote: 'Ordered fruit pies for a family gathering — fresh, pretty, and everyone asked where they came from.',
     name: 'Dimas P.',
-    product: 'Fruit Pie',
+    product: 'Pie Buah',
   },
   {
     quote: 'Bolu jadul that actually tastes like the one from my childhood. Soft, fluffy, and nostalgic.',

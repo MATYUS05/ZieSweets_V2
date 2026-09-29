@@ -41,7 +41,7 @@ export default function Reviews() {
                 <figcaption className="mt-6 flex items-center justify-between gap-3 border-t-2 border-cocoa pt-4">
                   <span className="font-bold">{review.name}</span>
                   {review.product && (
-                    <span className="rounded-full border-2 border-cocoa px-2.5 py-0.5 text-[0.65rem] font-bold tracking-widest uppercase">
+                    <span className="tag">
                       {review.product}
                     </span>
                   )}

@@ -22,7 +22,7 @@ export default function ProductItem({ product, tilt = 0 }) {
         <h3 className={`font-black uppercase ${product.featured ? 'text-3xl md:text-5xl' : 'text-2xl'}`}>
           {product.name}
         </h3>
-        <span className="shrink-0 rounded-full border-2 border-cocoa px-2.5 py-0.5 text-[0.65rem] font-bold tracking-widest uppercase">
+        <span className="tag">
           {product.category}
         </span>
       </div>

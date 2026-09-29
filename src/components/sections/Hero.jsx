@@ -1,4 +1,4 @@
-import { contact, photos } from '../../data/site'
+import { orderHref, photos } from '../../data/site'
 import Button from '../ui/Button'
 import HandNote from '../ui/HandNote'
 import PhotoCard from '../ui/PhotoCard'
@@ -28,8 +28,8 @@ export default function Hero() {
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Button href="#products">See the goodies →</Button>
-          <Button href={contact.whatsappUrl} variant="light">
-            Order on WhatsApp
+          <Button href={orderHref} variant="light">
+            Order now
           </Button>
         </div>
       </div>
