@@ -45,7 +45,7 @@ export default function Hero() {
           imgClassName="aspect-[4/5] object-[50%_60%]"
         />
         <PhotoCard
-          src={photos.fruitPie}
+          src={photos.fruitPieSmall}
           alt="Fruit pies topped with strawberry, orange and kiwi"
           tilt={-8}
           className="absolute -bottom-10 -left-4 w-32 sm:w-40 md:-left-12"

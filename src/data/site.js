@@ -1,14 +1,18 @@
 import boothPhoto from '../assets/img/Gambar2.webp'
+import soesSmall from '../assets/img/Gambar3-600.webp'
 import soesPhoto from '../assets/img/Gambar3.webp'
+import boluJadulSmall from '../assets/img/bolu-jadul-600.webp'
 import boluJadulPhoto from '../assets/img/bolu-jadul.webp'
+import fruitPieSmall from '../assets/img/fruit-pie-600.webp'
 import fruitPiePhoto from '../assets/img/fruit-pie.webp'
+import risolSmall from '../assets/img/risol-600.webp'
 import risolPhoto from '../assets/img/risol.webp'
+import breadSmall from '../assets/img/soft-bread-600.webp'
 import breadPhoto from '../assets/img/soft-bread.webp'
-import { dummyCustomers, dummyReviews } from './dummy'
 
 export const photos = {
   soes: soesPhoto,
-  fruitPie: fruitPiePhoto,
+  fruitPieSmall,
   booth: boothPhoto,
 }
 
@@ -39,29 +43,36 @@ export const navLinks = [
 
 export const values = ['Quality ingredients', 'Soft textures', 'Sweet flavours', 'Special moments', 'Everyday treats']
 
+const srcSet = (small, large, width) => `${small} 600w, ${large} ${width}w`
+
 const shots = {
   soes: {
     image: soesPhoto,
+    srcSet: srcSet(soesSmall, soesPhoto, 1067),
     imagePosition: '60% 78%',
     alt: 'ZieSweets soes on a white plate, two halves showing the rum fla filling',
   },
   pieBuah: {
     image: fruitPiePhoto,
+    srcSet: srcSet(fruitPieSmall, fruitPiePhoto, 1067),
     imagePosition: '50% 80%',
     alt: 'Two ZieSweets fruit pies with strawberry, orange and kiwi on a wooden board, a boxed set behind them',
   },
   rotiCokelat: {
     image: breadPhoto,
+    srcSet: srcSet(breadSmall, breadPhoto, 1066),
     imagePosition: '50% 78%',
     alt: 'Two golden ZieSweets bread rolls with chocolate sprinkles on a wooden board, a full box behind them',
   },
   risol: {
     image: risolPhoto,
+    srcSet: srcSet(risolSmall, risolPhoto, 1600),
     imagePosition: '55% 80%',
     alt: 'Two golden ZieSweets risol on a wooden board, a box of three behind them',
   },
   boluJadul: {
     image: boluJadulPhoto,
+    srcSet: srcSet(boluJadulSmall, boluJadulPhoto, 1067),
     imagePosition: '50% 80%',
     alt: 'A slice of ZieSweets bolu jadul topped half with grated cheese and half with chocolate sprinkles',
   },
@@ -151,7 +162,43 @@ export const marqueeItems = ['Freshly baked everyday', ...showcaseProducts.map((
 export const stats = [
   { value: String(new Date().getFullYear() - 2016), label: 'Years of baking' },
   { value: String(products.length), label: 'Treats on the menu' },
-  { value: dummyCustomers, label: 'Happy customers' },
+  { value: '1K+', label: 'Happy customers' },
 ]
 
-export const reviews = dummyReviews
+export const reviews = [
+  {
+    name: 'P•••••e',
+    quote: 'Baru selesai pestanya, snacknya disantap — aman, enak dan mantap. Enak-enak semua snack hari ini!',
+  },
+  {
+    name: 'E••k',
+    quote: 'Macaroninya cocok, kata anak enak!',
+    product: 'Macaroni Schotel Beef',
+  },
+  {
+    name: 'M•••a',
+    quote: 'Wuah daebak, masih tetap enak! Belum makan siang, dapat kiriman langsung habis 3 — cici saya 2. Wkwkwk.',
+  },
+  {
+    name: 'H•••y',
+    quote: 'Kue talam ketan hijaunya kayak kue Pontianak. Risol ragout-nya juga enak!',
+    product: 'Risol Ragout',
+  },
+  {
+    name: 'G•••e',
+    quote: 'Astaga lupa… udah keburu dimakan, hahaha. Enak as usual!',
+  },
+  {
+    name: 'M••a',
+    quote: 'Kalau fruit pie saya udah coba, enak. Mau pesan fruit pie isi 9 pcs ya!',
+    product: 'Pie Buah',
+  },
+  {
+    name: 'E••••r',
+    quote: 'Bikin list kue-kuenya lagi dong plus harganya, saya share ke komunitas. Lapis/talam ijonya enak!',
+  },
+  {
+    name: 'A••••a',
+    quote: 'Makasih ci, enak semua!',
+  },
+]

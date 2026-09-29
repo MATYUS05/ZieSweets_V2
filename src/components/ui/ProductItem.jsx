@@ -12,6 +12,8 @@ export default function ProductItem({ product, tilt = 0 }) {
       <div className="relative flex-1 overflow-hidden border-2 border-cocoa">
         <img
           src={product.image}
+          srcSet={product.srcSet}
+          sizes={product.featured ? '(min-width: 768px) 66vw, 78vw' : '(min-width: 768px) 33vw, 78vw'}
           alt={product.alt}
           loading="lazy"
           style={{ objectPosition: product.imagePosition }}

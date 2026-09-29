@@ -1,4 +1,5 @@
 import { reviews, stats } from '../../data/site'
+import HandNote from '../ui/HandNote'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
 
@@ -27,29 +28,34 @@ export default function Reviews() {
       </ul>
 
       {reviews.length > 0 && (
-        <ul className="mt-20 grid gap-8 md:grid-cols-3 md:gap-10">
-          {reviews.map((review, i) => (
-            <Reveal as="li" key={review.name} delay={i * 100}>
-              <figure
-                style={{ '--tilt': `${tilts[(i + 1) % tilts.length]}deg` }}
-                className="flex h-full rotate-(--tilt) flex-col border-2 border-cocoa bg-white p-6 shadow-hard-lg transition-[rotate] duration-300 hover:rotate-0"
-              >
-                <span aria-hidden="true" className="font-display text-6xl leading-none font-black text-gold">
-                  “
-                </span>
-                <blockquote className="mt-2 flex-1 text-lg leading-relaxed">{review.quote}</blockquote>
-                <figcaption className="mt-6 flex items-center justify-between gap-3 border-t-2 border-cocoa pt-4">
-                  <span className="font-bold">{review.name}</span>
-                  {review.product && (
-                    <span className="tag">
-                      {review.product}
-                    </span>
-                  )}
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </ul>
+        <>
+          <HandNote className="mt-20">straight from our WhatsApp ✦</HandNote>
+          <ul className="mt-8 columns-1 gap-8 md:columns-2 md:gap-10 lg:columns-3">
+            {reviews.map((review, i) => (
+              <Reveal as="li" key={review.name} delay={(i % 3) * 100} className="mb-8 break-inside-avoid md:mb-10">
+                <figure
+                  style={{ '--tilt': `${tilts[(i + 1) % tilts.length]}deg` }}
+                  className="flex rotate-(--tilt) flex-col border-2 border-cocoa bg-white p-6 shadow-hard-lg transition-[rotate] duration-300 hover:rotate-0"
+                >
+                  <span aria-hidden="true" className="font-display text-6xl leading-none font-black text-gold">
+                    “
+                  </span>
+                  <blockquote lang="id" className="mt-2 text-lg leading-relaxed">
+                    {review.quote}
+                  </blockquote>
+                  <figcaption className="mt-6 flex items-center justify-between gap-3 border-t-2 border-cocoa pt-4">
+                    <span className="font-bold">{review.name}</span>
+                    {review.product && (
+                      <span className="tag">
+                        {review.product}
+                      </span>
+                    )}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </ul>
+        </>
       )}
     </section>
   )

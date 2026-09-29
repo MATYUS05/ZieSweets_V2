@@ -25,6 +25,8 @@ export default function CatalogItem({ product, qty, onChange }) {
       {product.image ? (
         <img
           src={product.image}
+          srcSet={product.srcSet}
+          sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 112px"
           alt={product.alt}
           loading="lazy"
           style={{ objectPosition: product.imagePosition }}

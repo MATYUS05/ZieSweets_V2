@@ -1,7 +1,5 @@
 import { sortOptions } from '../../lib/catalog'
 
-const field = 'min-h-12 w-full rounded-full border-2 border-cocoa bg-white font-semibold shadow-hard'
-
 export default function CatalogFilters({ filters, categories, onChange }) {
   return (
     <div className="grid gap-4">
@@ -23,7 +21,7 @@ export default function CatalogFilters({ filters, categories, onChange }) {
             value={filters.query}
             onChange={(e) => onChange({ query: e.target.value })}
             placeholder="Search treats…"
-            className={`${field} pr-5 pl-12 placeholder:text-cocoa-muted/70`}
+            className="field pr-5 pl-12"
           />
         </label>
         <label className="relative sm:w-56">
@@ -31,7 +29,7 @@ export default function CatalogFilters({ filters, categories, onChange }) {
           <select
             value={filters.sort}
             onChange={(e) => onChange({ sort: e.target.value })}
-            className={`${field} select-pill cursor-pointer appearance-none pr-11 pl-5`}
+            className="field select-pill cursor-pointer appearance-none pr-11 pl-5"
           >
             {sortOptions.map((option) => (
               <option key={option.value} value={option.value}>

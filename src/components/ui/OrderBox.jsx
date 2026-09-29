@@ -1,15 +1,25 @@
+import { useRef, useState } from 'react'
 import { whatsappLink } from '../../data/site'
 import { formatPrice, orderMessage, summarizeOrder } from '../../lib/order'
 import Button from './Button'
 
+const label = 'mb-2 block text-xs font-bold tracking-[0.15em] uppercase'
+
 export default function OrderBox({ items, onClear, className = '' }) {
+  const receiptRef = useRef(null)
   const { count, total } = summarizeOrder(items)
-  const checkoutUrl = whatsappLink(orderMessage(items))
   const countLabel = `${count} ${count === 1 ? 'item' : 'items'}`
+  const [today] = useState(() => new Date().toLocaleDateString('en-CA'))
+
+  const checkout = (event) => {
+    event.preventDefault()
+    const details = Object.fromEntries(new FormData(event.currentTarget))
+    window.location.href = whatsappLink(orderMessage(items, details))
+  }
 
   return (
     <aside aria-labelledby="order-box-title" className={className}>
-      <div className="border-2 border-cocoa bg-white p-6 shadow-hard-lg max-lg:hidden">
+      <div ref={receiptRef} className="scrollbar-brand scroll-mt-24 border-2 border-cocoa bg-white p-6 shadow-hard-lg lg:max-h-[calc(100dvh-8rem)] lg:overflow-y-auto">
         <div className="flex items-center justify-between gap-3">
           <h3 id="order-box-title" className="text-3xl font-black uppercase">
             Your box
@@ -22,7 +32,7 @@ export default function OrderBox({ items, onClear, className = '' }) {
             Your box is empty. Add a treat or two to get started.
           </p>
         ) : (
-          <>
+          <form onSubmit={checkout}>
             <ul className="mt-6 divide-y-2 divide-dashed divide-cocoa/30 border-y-2 border-dashed border-cocoa/30">
               {items.map((item) => (
                 <li key={item.name} className="flex justify-between gap-4 py-3">
@@ -37,7 +47,29 @@ export default function OrderBox({ items, onClear, className = '' }) {
               <span className="text-sm font-bold tracking-[0.15em] uppercase">Total</span>
               <span className="font-display text-3xl font-black">{formatPrice(total)}</span>
             </p>
-            <Button href={checkoutUrl} className="mt-6 w-full">
+
+            <fieldset className="mt-6 grid gap-4 border-t-2 border-dashed border-cocoa/30 pt-6">
+              <legend className="sr-only">Order details</legend>
+              <label>
+                <span className={label}>Your name</span>
+                <input name="name" required autoComplete="name" className="field bg-cream px-5" />
+              </label>
+              <label>
+                <span className={label}>Needed on</span>
+                <input name="date" type="date" required min={today} className="field bg-cream px-5" />
+              </label>
+              <label>
+                <span className={label}>Notes (optional)</span>
+                <textarea
+                  name="notes"
+                  rows="3"
+                  placeholder="Pickup or delivery, address, special requests…"
+                  className="field resize-none rounded-3xl bg-cream px-5 py-3"
+                />
+              </label>
+            </fieldset>
+
+            <Button type="submit" className="mt-6 w-full">
               Checkout on WhatsApp →
             </Button>
             <button
@@ -47,7 +79,7 @@ export default function OrderBox({ items, onClear, className = '' }) {
             >
               Empty the box
             </button>
-          </>
+          </form>
         )}
 
         <p className="mt-4 text-center text-sm text-cocoa-muted">We’ll confirm your order on WhatsApp.</p>
@@ -59,7 +91,9 @@ export default function OrderBox({ items, onClear, className = '' }) {
             <span className="block text-xs font-bold tracking-[0.15em] uppercase">{countLabel} in your box</span>
             <span className="font-display text-2xl font-black">{formatPrice(total)}</span>
           </p>
-          <Button href={checkoutUrl}>Checkout →</Button>
+          <Button type="button" onClick={() => receiptRef.current.scrollIntoView({ block: 'start' })}>
+            Review order ↓
+          </Button>
         </div>
       )}
     </aside>

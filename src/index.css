@@ -53,8 +53,23 @@
   text-transform: uppercase;
 }
 
+@utility field {
+  min-height: 3rem;
+  width: 100%;
+  border: 2px solid var(--color-cocoa);
+  border-radius: calc(infinity * 1px);
+  background: white;
+  font-weight: 600;
+  box-shadow: var(--shadow-hard);
+
+  &::placeholder {
+    color: color-mix(in oklab, var(--color-cocoa-muted) 70%, transparent);
+  }
+}
+
 @utility scrollbar-brand {
   &::-webkit-scrollbar {
+    width: 0.375rem;
     height: 0.375rem;
   }
 

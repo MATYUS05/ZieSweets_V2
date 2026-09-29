@@ -10,12 +10,21 @@ import Pagination from '../ui/Pagination'
 import SectionHeading from '../ui/SectionHeading'
 
 const perPage = 8
+const boxKey = 'ziesweets-box'
+
+function loadBox() {
+  try {
+    return JSON.parse(localStorage.getItem(boxKey)) ?? {}
+  } catch {
+    return {}
+  }
+}
 const initialFilters = { query: '', category: 'All', sort: 'all' }
 
 export default function Catalog() {
   const dialogRef = useRef(null)
   const resultsRef = useRef(null)
-  const [box, setBox] = useState({})
+  const [box, setBox] = useState(loadBox)
   const [filters, setFilters] = useState(initialFilters)
   const [page, setPage] = useState(1)
 
@@ -30,6 +39,14 @@ export default function Catalog() {
     window.addEventListener('hashchange', sync)
     return () => window.removeEventListener('hashchange', sync)
   }, [])
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(boxKey, JSON.stringify(box))
+    } catch {
+      return
+    }
+  }, [box])
 
   const clearHash = () => {
     if (location.hash === orderHref) history.replaceState(null, '', location.pathname + location.search)
