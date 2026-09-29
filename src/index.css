@@ -1,0 +1,96 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-gold: #ffcc00;
+  --color-gold-soft: #fff0b3;
+  --color-cocoa: #5b2e0f;
+  --color-cocoa-muted: #7a5236;
+  --color-cream: #fbf5ea;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+
+  --shadow-hard: 4px 4px 0 0 var(--color-cocoa);
+  --shadow-hard-lg: 8px 8px 0 0 var(--color-cocoa);
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+
+  @keyframes marquee {
+    to {
+      translate: -50% 0;
+    }
+  }
+}
+
+@utility shell {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @variant md {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility highlight {
+  background: linear-gradient(transparent 55%, var(--color-gold) 55%, var(--color-gold) 92%, transparent 92%);
+  box-decoration-break: clone;
+  padding-inline: 0.1em;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-cream font-sans text-cocoa antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-variation-settings:
+      'SOFT' 100,
+      'WONK' 1;
+  }
+
+  :focus-visible {
+    @apply outline-3 outline-offset-4 outline-cocoa;
+  }
+}
+
+[data-reveal] {
+  transition:
+    opacity 700ms ease,
+    translate 700ms ease;
+}
+
+[data-reveal='hidden'] {
+  opacity: 0;
+  translate: 0 1.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+  }
+
+  [data-reveal] {
+    transition: none;
+    opacity: 1;
+    translate: none;
+  }
+}
