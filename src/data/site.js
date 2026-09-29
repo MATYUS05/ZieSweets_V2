@@ -13,10 +13,13 @@ export const photos = {
 }
 
 const whatsappNumber = '6281188809117'
+const whatsappText = encodeURIComponent('Hi ZieSweets, I would like to place an order.')
+const whatsappWebUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`
+const whatsappAndroidUrl = `intent://send/?phone=${whatsappNumber}&text=${whatsappText}#Intent;scheme=whatsapp;S.browser_fallback_url=${encodeURIComponent(whatsappWebUrl)};end`
 
 export const contact = {
   whatsappDisplay: '0811 8880 9117',
-  whatsappUrl: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hi ZieSweets, I would like to place an order.')}`,
+  whatsappUrl: /Android/i.test(navigator.userAgent) ? whatsappAndroidUrl : whatsappWebUrl,
   instagramHandle: '@Zie_Sweets',
   instagramUrl: 'https://www.instagram.com/zie_sweets/',
 }
