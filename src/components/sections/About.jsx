@@ -1,4 +1,4 @@
-import { photos, values } from '../../data/site'
+import { values } from '../../data/site'
 import Pill from '../ui/Pill'
 import Reveal from '../ui/Reveal'
 
@@ -10,18 +10,6 @@ const chipStyles = [
   'bg-gold -rotate-2',
 ]
 
-function InlinePhoto({ src, position = 'center' }) {
-  return (
-    <img
-      src={src}
-      alt=""
-      loading="lazy"
-      style={{ objectPosition: position }}
-      className="mx-1 inline-block h-[0.85em] w-[1.9em] -translate-y-[0.08em] -rotate-3 rounded-full border-2 border-cocoa object-cover align-middle md:border-3"
-    />
-  )
-}
-
 export default function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="shell py-20 md:py-32">
@@ -31,10 +19,8 @@ export default function About() {
           id="about-title"
           className="mt-8 text-4xl leading-[1.1] font-bold tracking-tight md:text-7xl md:leading-[1.05]"
         >
-          Since <InlinePhoto src={photos.booth} position="50% 20%" /> 2016, we’ve been baking{' '}
-          <span className="highlight">soft</span> cakes <InlinePhoto src={photos.soes} position="60% 78%" /> and sweet
-          breads <InlinePhoto src={photos.bread} position="50% 78%" /> with quality ingredients and a touch of{' '}
-          <em className="font-semibold">love.</em>
+          Since 2016, we’ve been baking <span className="highlight">soft</span> cakes and sweet breads with quality
+          ingredients and a touch of <em className="font-semibold">love.</em>
         </h2>
       </Reveal>
 

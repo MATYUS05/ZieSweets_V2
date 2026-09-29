@@ -8,10 +8,7 @@ import { dummyCustomers, dummyReviews } from './dummy'
 
 export const photos = {
   soes: soesPhoto,
-  bread: breadPhoto,
   fruitPie: fruitPiePhoto,
-  boluJadul: boluJadulPhoto,
-  risol: risolPhoto,
   booth: boothPhoto,
 }
 
