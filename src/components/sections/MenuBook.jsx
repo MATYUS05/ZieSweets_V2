@@ -174,7 +174,7 @@ export default function MenuBook() {
     ? prevTurn
       ? 'left-0 w-1/2 origin-right animate-flip-prev'
       : 'right-0 w-1/2 origin-left animate-flip-next'
-    : `inset-x-0 origin-left animate-flip-next ${prevTurn ? '[animation-direction:reverse]' : ''}`
+    : `inset-x-0 origin-left animate-page-away ${prevTurn ? '[animation-direction:reverse]' : ''}`
 
   return (
     <dialog
@@ -212,7 +212,7 @@ export default function MenuBook() {
               const distance = event.clientX - swipeRef.current
               if (Math.abs(distance) > 50) go(distance < 0 ? start + step : start - step)
             }}
-            className={`relative grid h-[clamp(34rem,calc(100dvh-11rem),46rem)] touch-pan-y [perspective:2500px] ${wide ? 'grid-cols-2' : 'grid-cols-1'} ${turn ? '' : 'shadow-[10px_10px_0_0_var(--color-gold)]'}`}
+            className={`relative grid h-[clamp(34rem,calc(100dvh-11rem),46rem)] touch-pan-y [perspective:2500px] ${wide ? 'grid-cols-2' : 'grid-cols-1'} ${turn?.under.includes('empty') ? '' : 'shadow-[10px_10px_0_0_var(--color-gold)]'}`}
           >
             <div
               ref={measureRef}

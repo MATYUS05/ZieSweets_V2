@@ -22,6 +22,7 @@
   --animate-lid-close: lid-close 1300ms cubic-bezier(0.7, 0, 0.3, 1) both;
   --animate-flip-next: flip-next 700ms cubic-bezier(0.45, 0, 0.2, 1) both;
   --animate-flip-prev: flip-prev 700ms cubic-bezier(0.45, 0, 0.2, 1) both;
+  --animate-page-away: page-away 500ms cubic-bezier(0.5, 0, 0.75, 0) both;
 
   @keyframes marquee {
     to {
@@ -66,6 +67,15 @@
     }
     to {
       transform: rotateY(-180deg);
+    }
+  }
+
+  @keyframes page-away {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(-90deg);
     }
   }
 
