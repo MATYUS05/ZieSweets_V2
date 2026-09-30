@@ -37,6 +37,8 @@ export default function Hero() {
       <div className="relative mx-auto w-full max-w-md md:col-span-5 md:max-w-none">
         <PhotoCard
           src={photos.soes}
+          srcSet={photos.soesSrcSet}
+          sizes="(min-width: 768px) 40vw, 90vw"
           alt="A kraft box of ZieSweets soes beside a plate of soes cut open to show the rum fla filling"
           tilt={3}
           width="1067"

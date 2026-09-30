@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import logoMark from '../../assets/img/logo-mark.png'
+import logoMark from '../../assets/img/logo-mark.webp'
 
 export default function SinceBadge({ className = 'relative' }) {
   const pathId = useId()

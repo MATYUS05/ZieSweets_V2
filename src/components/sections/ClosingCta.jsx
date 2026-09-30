@@ -11,6 +11,8 @@ export default function ClosingCta() {
         <Reveal className="order-2 mx-auto w-full max-w-sm md:order-1 md:col-span-5 md:max-w-none">
           <PhotoCard
             src={photos.booth}
+            srcSet={photos.boothSrcSet}
+            sizes="(min-width: 768px) 40vw, 384px"
             alt="The ZieSweets stall at a bazaar, its table filled with boxed pastries and breads"
             tilt={-4}
             loading="lazy"

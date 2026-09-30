@@ -1,4 +1,5 @@
 import { sortOptions } from '../../lib/catalog'
+import SelectField from './SelectField'
 
 export default function CatalogFilters({ filters, categories, onChange }) {
   return (
@@ -24,22 +25,15 @@ export default function CatalogFilters({ filters, categories, onChange }) {
             className="field pr-5 pl-12"
           />
         </label>
-        <label className="relative sm:w-56">
+        <label className="sm:w-56">
           <span className="sr-only">Sort by</span>
-          <select
-            value={filters.sort}
-            onChange={(e) => onChange({ sort: e.target.value })}
-            className="field select-pill cursor-pointer appearance-none pr-11 pl-5"
-          >
+          <SelectField value={filters.sort} onChange={(e) => onChange({ sort: e.target.value })}>
             {sortOptions.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
             ))}
-          </select>
-          <span aria-hidden="true" className="pointer-events-none absolute top-1/2 right-5 -translate-y-1/2 text-sm transition-[rotate]">
-            ▼
-          </span>
+          </SelectField>
         </label>
       </div>
 

@@ -1,3 +1,4 @@
+import boothSmall from '../assets/img/Gambar2-600.webp'
 import boothPhoto from '../assets/img/Gambar2.webp'
 import soesSmall from '../assets/img/Gambar3-600.webp'
 import soesPhoto from '../assets/img/Gambar3.webp'
@@ -9,11 +10,15 @@ import risolSmall from '../assets/img/risol-600.webp'
 import risolPhoto from '../assets/img/risol.webp'
 import breadSmall from '../assets/img/soft-bread-600.webp'
 import breadPhoto from '../assets/img/soft-bread.webp'
+import eventBoxesSmall from '../assets/img/event-boxes-600.webp'
+import eventBoxesPhoto from '../assets/img/event-boxes.webp'
 
 export const photos = {
   soes: soesPhoto,
+  soesSrcSet: `${soesSmall} 600w, ${soesPhoto} 1067w`,
   fruitPieSmall,
   booth: boothPhoto,
+  boothSrcSet: `${boothSmall} 600w, ${boothPhoto} 1200w`,
 }
 
 const whatsappNumber = '6281188809117'
@@ -26,6 +31,12 @@ export function whatsappLink(message) {
 }
 
 export const orderHref = '#order'
+export const eventOrderHref = '#order-event'
+export const snackBoxHref = '#snack-box'
+export const menuHref = '#menu'
+
+export const snackBoxSizes = [2, 3, 4, 5]
+export const snackBoxPresets = [10, 25, 50, 100]
 
 export const contact = {
   whatsappDisplay: '0811 8880 9117',
@@ -44,6 +55,12 @@ export const navLinks = [
 export const values = ['Quality ingredients', 'Soft textures', 'Sweet flavours', 'Special moments', 'Everyday treats']
 
 const srcSet = (small, large, width) => `${small} 600w, ${large} ${width}w`
+
+export const eventPhoto = {
+  src: eventBoxesPhoto,
+  srcSet: srcSet(eventBoxesSmall, eventBoxesPhoto, 900),
+  alt: 'Kraft boxes packed with ZieSweets soft bread rolls and fruit pies, ready for an event',
+}
 
 const shots = {
   soes: {
@@ -85,6 +102,7 @@ export const products = [
     category: 'Pastry',
     price: 8000,
     description: 'Light choux pastry filled with smooth, creamy fla with a hint of rum.',
+    packs: [6, 9],
     ...shots.soes,
     featured: true,
     showcase: true,
@@ -95,6 +113,7 @@ export const products = [
     category: 'Pastry',
     price: 9000,
     description: 'Crisp tart shells filled with our rum fla, topped with strawberry, orange and kiwi.',
+    packs: [6, 9],
     ...shots.pieBuah,
     showcase: true,
   },
